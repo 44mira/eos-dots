@@ -1,0 +1,14 @@
+[Unit]
+Description=Colemak keyboard kmonad
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/tyrael/.config/kmonad/ext_keyboard
+Restart=always
+RestartSec=5
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

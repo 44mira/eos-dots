@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+device="usb-BY_Tech_Gaming_Keyboard-if01-event-kbd"
+
+if [[ -e "/dev/input/by-id/${device_name}" ]]; then
+    kmonad /home/tyrael/.config/kmonad/colemak.kbd
+fi

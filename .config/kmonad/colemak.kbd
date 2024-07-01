@@ -1,0 +1,55 @@
+(defcfg
+  input  (device-file "/dev/input/by-id/usb-BY_Tech_Gaming_Keyboard-event-kbd")
+  output (uinput-sink "KMonad kbd")
+  fallthrough true
+)
+
+;; QWERTY to COLEMAK-DH
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc      
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \         
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret            
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft               
+  lctl lmet lalt           spc            ralt      rctl
+)
+
+(deflayer colemak
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    f    p    b    [    j    l    u    y    ;    '    \         
+  caps a    r    s    t    g    ]    m    n    e    i    o    ret               
+  lsft x    c    d    v    z    /    k    h    ,    .    rsft                   
+  lctl lmet lalt           spc            @mo1       rctl
+)
+
+(deflayer qwerty
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc      
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \         
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret            
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft               
+  lctl lmet lalt           spc            @mo2      rctl
+)
+
+(defalias
+  mo1 (layer-switch qwerty)
+  mo2 (layer-switch colemak)
+  ;; shifted keys
+  _ S--
+  ! S-1
+  @ S-2
+  # S-3
+  { S-[
+  $ S-4
+  % S-5
+  ^ S-6
+  } S-]
+  & S-7
+  * S-8
+  op S-9
+  cp S-0
+  til S-grv
+  ? S-/
+  pipe S-\
+)
