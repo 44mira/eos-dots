@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
-PICTURE=/tmp/i3lock.png
-SCREENSHOT="scrot -z $PICTURE"
+TMP=/tmp/i3lock.png
+# SCREENSHOT="scrot -z $PICTURE"
 
-BLUR="5x4"
+PICTURE='/home/tyrael/Pictures/wallpapers/desktop_view.png'
 
-$SCREENSHOT
-convert $PICTURE -blur $BLUR $PICTURE
-i3lock -i $PICTURE
-rm $PICTURE
+# BLUR="2x2"
+magick $PICTURE          \
+       -resize 1920x1080 \
+       $TMP 
+i3lock -i $TMP
+rm $TMP
+
+# $SCREENSHOT
+# convert $PICTURE -blur $BLUR $PICTURE
+# i3lock -i $PICTURE
+# rm $PICTURE
