@@ -12,7 +12,7 @@ export MANROFFOPT="-c"
 alias zconf='nvim ~/.zshrc'
 alias zsrc='source ~/.zshrc'
 alias lg="lazygit"
-alias ff="fastfetch --disable-linewrap -l arch"
+alias ff="fastfetch --disable-linewrap"
 alias nv="nvim"
 alias zz="z ~"
 
@@ -35,3 +35,4 @@ function yy() {
 }
 
 . /opt/asdf-vm/asdf.sh
+(cat ~/.cache/wal/sequences &)
